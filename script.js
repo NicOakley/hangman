@@ -84,19 +84,19 @@ class game{
         //If guess is false fade out a heart on screen and take away 1 from lives
         if(correct == 0){
             if(lives == 7){
-                $('.h7').fadeTo(200, 0.001);
+                $('.h7').fadeTo(200, 0.1);
             }
             if(lives == 6){
-                $('.h6').fadeTo(200, 0.001);
+                $('.h6').fadeTo(200, 0.1);
             }
             if(lives == 5){
-                $('.h5').fadeTo(200, 0.001);
+                $('.h5').fadeTo(200, 0.1);
             }
             if(lives == 4){
-                $('.h4').fadeTo(200, 0.001);
+                $('.h4').fadeTo(200, 0.1);
             }
             if(lives == 3){
-                $('.h3').fadeTo(200, 0.001);
+                $('.h3').fadeTo(200, 0.1);
             }
             if(lives == 2){
                 $('.h2').fadeTo(1, 0.001);
