@@ -11,6 +11,7 @@
         
         <!-- Container for hangman game -->
         <div class="gamearea">
+            
             <!-- Container for lives displayed on screen -->
             <div class="hearts">
                 <img class="life h1" src="assets/heart.png" alt="">
@@ -20,15 +21,12 @@
                 <img class="life h5" src="assets/heart.png" alt="">
                 <img class="life h6" src="assets/heart.png" alt="">
                 <img class="life h7" src="assets/heart.png" alt="">
-
             </div>
 
             <!-- Word being guessed-->
             <div class="wordcontainer">
                 <h1 class="guessword"></h1>
             </div>
-
-
 
             <!-- Previously guessed letters -->
             <div class="guessedcontainer">
@@ -40,25 +38,10 @@
             <div class="inputcontainer">
                 <input class="input"type="text" maxlength="1" value="">
             </div>
-
             <div class="buttoncontainer">
                 <button onClick="history.go(0);"  class="restartgame">New Game</button>
             </div>
-            
-
-
         </div>
-
-
-
-
-
-
-
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/MotionPathPlugin.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="script.js" async defer></script>
     </body>

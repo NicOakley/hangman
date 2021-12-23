@@ -30,6 +30,7 @@ class game{
             if(gameOver == true) return;
             var keycode = (event.keycode ? event.keycode : event.which);
             if(keycode == '13'){
+                
                 //Store guess and then clear input field
                 currentGuess = $('.input').val().toUpperCase();
                 guessed = guessed + currentGuess;
@@ -49,28 +50,21 @@ class game{
                     gameOver = true;
                 }
 
-
                 //Replace * in tempWord with currentGuess character and overwrite .guessword
                 if(gameOver == false){
                     tempWord = $('.guessword').text();
                     for(var i = 0; i < wordLength; i++){
-                        if(currentGuess == word[i]){
+                        if(currentGuess == word[i])
                             tempWord = tempWord.substring(0, i) + currentGuess + tempWord.substring(i + 1);
-                        }
                     }
                     $('.guessword').text(tempWord);
-
-
                 }
             }
         });
     }
 
     //appends guessed letter to guessed letter list
-    static addToGuessed(letter) {
-        $(".guessedletters").append(letter);
-
-    }
+    static addToGuessed(letter) { $(".guessedletters").append(letter); }
     
     //checks for number of correct letters from guess and removes life if no correct letters
     static handleGuess(letter, word, lives){
@@ -83,34 +77,31 @@ class game{
         }
         //If guess is false fade out a heart on screen and take away 1 from lives
         if(correct == 0){
-            if(lives == 7){
+
+            if(lives == 7)
                 $('.h7').fadeTo(200, 0.1);
-            }
-            if(lives == 6){
+
+            if(lives == 6)
                 $('.h6').fadeTo(200, 0.1);
-            }
-            if(lives == 5){
+            
+            if(lives == 5)
                 $('.h5').fadeTo(200, 0.1);
-            }
-            if(lives == 4){
+            
+            if(lives == 4)
                 $('.h4').fadeTo(200, 0.1);
-            }
-            if(lives == 3){
+            
+            if(lives == 3)
                 $('.h3').fadeTo(200, 0.1);
-            }
-            if(lives == 2){
-                $('.h2').fadeTo(1, 0.001);
-            }
-            if(lives == 1){
-                $('.h1').fadeTo(1, 0.001);
-            }
+            
+            if(lives == 2)
+                $('.h2').fadeTo(1, 0.1);
+            
+            if(lives == 1)
+                $('.h1').fadeTo(1, 0.1);
+            
             return false;
         }
-
-
-
-
     }
 }
-
+//start game on load
 $( document ).ready(game.startGame());
