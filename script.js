@@ -1,33 +1,29 @@
 
-
+corGuesses = 0;
+tempWord = "";
 class game{
     //main game code
     static startGame() {
         var gameOver = false;
-        //variables storing current guess, previously guessed, and current lives
         var currentGuess = "";
         var guessed = "";
         var lives = 5;
-        var correctGuesses = 0;
 
         //Selects a random word from wordbank to init word
         var wordbank = ["testA", "teeestB", "teeeeestC"];
         const word = wordbank[Math.floor(Math.random() * wordbank.length)];
+        tempWord = word;
 
         //finds length of word and puts underscores in place of letters
         const wordLength = word.length;
-        for (let i = 0; i < wordLength; i++) {
-           $(".guessword").append("X")
-        }
+        for (let i = 0; i < wordLength; i++)
+           $(".guessword").append("*");
 
         //Event Listener for guess input (Enter key) unless game is over
         $('.input').keypress(function(event){
-            if(gameOver == true){
-                return;
-            }
+            if(gameOver == true) return;
             var keycode = (event.keycode ? event.keycode : event.which);
             if(keycode == '13'){
-
                 //Store guess and then clear input field
                 currentGuess = $('.input').val();
                 guessed = guessed + currentGuess;
@@ -35,8 +31,10 @@ class game{
 
                 //calls guess related functions
                 game.addToGuessed(currentGuess);
-                if(game.checkGuess(currentGuess, word, lives) == false) lives--;
-                if(game.checkWin() == true){
+                if(game.handleGuess(currentGuess, word, lives) == false) lives--;
+
+                //Checks for win or loss and stops taking input if either are true
+                if(corGuesses == wordLength){
                     $('.guessword').text("Winner! The word was " + word);
                     gameOver = true;
                 }
@@ -54,12 +52,13 @@ class game{
 
     }
     
-
-    static checkGuess(letter, word, lives){
+    //checks for number of correct letters from guess and removes life if no correct letters
+    static handleGuess(letter, word, lives, tempWord){
         var correct = 0;
         for(var i = 0; i < word.length; i++) {
             if(letter == word.charAt(i)){
                 correct++;
+                corGuesses++;
             }
         }
         //If guess is false fade out a heart on screen and take away 1 from lives
@@ -81,16 +80,11 @@ class game{
             }
             return false;
         }
-        return true;
-    }
 
-    static checkWin(word){
-        var check = $(".guessedletters").text();
-        for(var i = 0; i < check.length; i++){
-        
-        }
-    }
 
+
+
+    }
 }
 
 $( document ).ready(game.startGame());
