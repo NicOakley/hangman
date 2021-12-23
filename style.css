@@ -1,5 +1,5 @@
 body {
-    background: #6E3CBC;
+    background: #041C32;
     display: flex;
     justify-content: center;
     align-items: vertical;
@@ -12,7 +12,7 @@ body {
 
 .gamearea {
     width:70%;
-    background: #7267CB;
+    background: #04293A;
     border: 3px solid black;
 }
 
@@ -85,15 +85,16 @@ body {
 .restartgame {
     font-size: .8vw;
     width: 10%;
+    color:#ffffff;
     height: 2vw;
-    background-color: #6E3CBC;
+    background-color: #064663;
     border: 1px solid black;
     opacity: .6;
     cursor: pointer;
 }
 
 .restartgame:hover {
-    background-color: #4a1b96;
+    background-color: #04293A;
     opacity: 1;
     cursor: pointer;
 }
