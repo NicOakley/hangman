@@ -10,7 +10,13 @@ class game{
         var lives = 5;
 
         //Selects a random word from wordbank to init word
-        var wordbank = ["testA", "teeestB", "teeeeestC"];
+        var wordbank = ["ABLE", "ABOUT", "SELFISH", "ZIPPER", "THIN", "SHIRT", "VANISH", "PROTECT", "THRONE", "PRETEND", "PAUSE", 
+        "RAILWAY", "GUARD", "HESITANT", "SIP", "FAIL", "SNOW", "HOMELESS", "MESSY", "BABABOOEY", "OCEAN", "WOMAN", "GUITAR",
+         "ELETRIC", "CARROT", "NEEDLE", "DAUGHTER", "WEALTHY", "SERVER", "SUIT", "IMPULSE", "EXCITING", "GOING", "DRAWER", 
+         "RETURN", "PRECIOUS", "ALCOHOL", "YAWN", "DAMAGE", "KITTY", "SPIDER", "EXPLODE", "ISLAND", "ROTTEN", "TEMPER", 
+         "TOP", "GRIN", "MOUNTAIN", "DOCTOR", "FIREMAN", "BUBBLES", "MELTING", "RUNNING", "APPLE", "BANANA", "BATTLE", 
+         "CABBAGE", "TALENTED", "ABANDONED", "DOUBLE", "WONDERFUL", "WORK"];
+         
         const word = wordbank[Math.floor(Math.random() * wordbank.length)];
         tempWord = word;
 
@@ -25,7 +31,7 @@ class game{
             var keycode = (event.keycode ? event.keycode : event.which);
             if(keycode == '13'){
                 //Store guess and then clear input field
-                currentGuess = $('.input').val();
+                currentGuess = $('.input').val().toUpperCase();
                 guessed = guessed + currentGuess;
                 $('.input').val('');
 
@@ -38,9 +44,23 @@ class game{
                     $('.guessword').text("Winner! The word was " + word);
                     gameOver = true;
                 }
-                    if(lives == 0){
+                if(lives == 0){
                     $('.guessword').text("Sorry! The word was " + word);
                     gameOver = true;
+                }
+
+
+                //Replace * in tempWord with currentGuess character and overwrite .guessword
+                if(gameOver == false){
+                    tempWord = $('.guessword').text();
+                    for(var i = 0; i < wordLength; i++){
+                        if(currentGuess == word[i]){
+                            tempWord = tempWord.substring(0, i) + currentGuess + tempWord.substring(i + 1);
+                        }
+                    }
+                    $('.guessword').text(tempWord);
+
+
                 }
             }
         });
@@ -53,7 +73,7 @@ class game{
     }
     
     //checks for number of correct letters from guess and removes life if no correct letters
-    static handleGuess(letter, word, lives, tempWord){
+    static handleGuess(letter, word, lives){
         var correct = 0;
         for(var i = 0; i < word.length; i++) {
             if(letter == word.charAt(i)){
