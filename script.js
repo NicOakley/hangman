@@ -7,7 +7,7 @@ class game{
         var gameOver = false;
         var currentGuess = "";
         var guessed = "";
-        var lives = 5;
+        var lives = 7;
 
         //Selects a random word from wordbank to init word
         var wordbank = ["ABLE", "ABOUT", "SELFISH", "ZIPPER", "THIN", "SHIRT", "VANISH", "PROTECT", "THRONE", "PRETEND", "PAUSE", 
@@ -16,7 +16,7 @@ class game{
          "RETURN", "PRECIOUS", "ALCOHOL", "YAWN", "DAMAGE", "KITTY", "SPIDER", "EXPLODE", "ISLAND", "ROTTEN", "TEMPER", 
          "TOP", "GRIN", "MOUNTAIN", "DOCTOR", "FIREMAN", "BUBBLES", "MELTING", "RUNNING", "APPLE", "BANANA", "BATTLE", 
          "CABBAGE", "TALENTED", "ABANDONED", "DOUBLE", "WONDERFUL", "WORK"];
-         
+
         const word = wordbank[Math.floor(Math.random() * wordbank.length)];
         tempWord = word;
 
@@ -83,6 +83,12 @@ class game{
         }
         //If guess is false fade out a heart on screen and take away 1 from lives
         if(correct == 0){
+            if(lives == 7){
+                $('.h7').fadeTo(1, 0.001);
+            }
+            if(lives == 6){
+                $('.h6').fadeTo(1, 0.001);
+            }
             if(lives == 5){
                 $('.h5').fadeTo(1, 0.001);
             }
