@@ -9,6 +9,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
 .gamearea {
     width:70%;
     background: #7267CB;
@@ -49,6 +50,7 @@ body {
 
 .guessedletters {
     color: #98BAE7;
+    font-size: 2vw;
 }
 
 .inputcontainer {
@@ -67,4 +69,35 @@ body {
 
 .input:focus {
     outline: none;
+}
+
+.input:hover {
+    cursor: pointer;
+}
+
+.buttoncontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 8%;
+    margin-bottom:4%;
+}
+
+.restartgame {
+    font-size: .8vw;
+    width: 10%;
+    height: 2vw;
+    background-color: #6E3CBC;
+    border: 1px solid black;
+    opacity: .6;
+    cursor: pointer;
+}
+
+.restartgame:hover {
+    background-color: #4a1b96;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.restartgame:active {
+    transform: translateY(2px);
 }
