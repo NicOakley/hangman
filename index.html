@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Hangman</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <!-- Container for hangman game -->
+        <div class="gamearea">
+            <!-- Container for lives displayed on screen -->
+            <div class="hearts">
+                <img class="life h1" src="assets/heart.png" alt="">
+                <img class="life h2" src="assets/heart.png" alt="">
+                <img class="life h3" src="assets/heart.png" alt="">
+                <img class="life h4" src="assets/heart.png" alt="">
+                <img class="life h5" src="assets/heart.png" alt="">
+            </div>
+
+            <!-- Word being guessed-->
+            <div class="wordcontainer">
+                <h1 class="guessword">TEMPORARY</h1>
+            </div>
+
+
+
+            <!-- Previously guessed letters -->
+            <div class="guessedcontainer">
+                <h3 class="guessedletters">t e m p</h3>
+            </div>
+
+            <!-- Letter input -->
+            <div class="inputcontainer">
+                <input class="input"type="text" maxlength="1">
+            </div>
+            
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/MotionPathPlugin.min.js"></script>
+
+        <script src="script.js" async defer></script>
+    </body>
+</html>
