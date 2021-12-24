@@ -94,10 +94,10 @@ class game{
                 $('.h3').fadeTo(200, 0.1);
             
             if(lives == 2)
-                $('.h2').fadeTo(1, 0.1);
+                $('.h2').fadeTo(200, 0.1);
             
             if(lives == 1)
-                $('.h1').fadeTo(1, 0.1);
+                $('.h1').fadeTo(200, 0.1);
             
             return false;
         }
