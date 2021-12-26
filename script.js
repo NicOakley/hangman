@@ -2,6 +2,7 @@
 corGuesses = 0;
 tempWord = "";
 class game{
+    
     //main game code
     static startGame() {
         var gameOver = false;
@@ -10,12 +11,7 @@ class game{
         var lives = 7;
 
         //Selects a random word from wordbank to init word
-        var wordbank = ["ABLE", "ABOUT", "SELFISH", "ZIPPER", "THIN", "SHIRT", "VANISH", "PROTECT", "THRONE", "PRETEND", "PAUSE", 
-        "RAILWAY", "GUARD", "HESITANT", "SIP", "FAIL", "SNOW", "HOMELESS", "MESSY", "BABABOOEY", "OCEAN", "WOMAN", "GUITAR",
-         "ELETRIC", "CARROT", "NEEDLE", "DAUGHTER", "WEALTHY", "SERVER", "SUIT", "IMPULSE", "EXCITING", "GOING", "DRAWER", 
-         "RETURN", "PRECIOUS", "ALCOHOL", "YAWN", "DAMAGE", "KITTY", "SPIDER", "EXPLODE", "ISLAND", "ROTTEN", "TEMPER", 
-         "TOP", "GRIN", "MOUNTAIN", "DOCTOR", "FIREMAN", "BUBBLES", "MELTING", "RUNNING", "APPLE", "BANANA", "BATTLE", 
-         "CABBAGE", "TALENTED", "ABANDONED", "DOUBLE", "WONDERFUL", "WORK"];
+        var wordbank = ["VINEYARD"];
 
         const word = wordbank[Math.floor(Math.random() * wordbank.length)];
         tempWord = word;
@@ -28,11 +24,17 @@ class game{
         //Event Listener for guess input (Enter key) unless game is over
         $('.input').keypress(function(event){
             if(gameOver == true) return;
+
             var keycode = (event.keycode ? event.keycode : event.which);
             if(keycode == '13'){
-                
-                //Store guess and then clear input field
+                //Store guess
                 currentGuess = $('.input').val().toUpperCase();
+
+                //If guess has already been made or is null then return
+                for (let i = 0; i < guessed.length; i++)
+                    if(currentGuess == guessed[i]) return;
+
+                //Clear input field
                 guessed = guessed + currentGuess;
                 $('.input').val('');
 
@@ -65,6 +67,7 @@ class game{
 
     //appends guessed letter to guessed letter list
     static addToGuessed(letter) { $(".guessedletters").append(letter); }
+
     
     //checks for number of correct letters from guess and removes life if no correct letters
     static handleGuess(letter, word, lives){
@@ -75,6 +78,7 @@ class game{
                 corGuesses++;
             }
         }
+
         //If guess is false fade out a heart on screen and take away 1 from lives
         if(correct == 0){
 
