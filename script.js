@@ -30,9 +30,9 @@ class game{
                 //Store guess
                 currentGuess = $('.input').val().toUpperCase();
 
-                //If guess has already been made or is null then return
+                //If guess has already been made or is blank then return
                 for (let i = 0; i < guessed.length; i++)
-                    if(currentGuess == guessed[i]) return;
+                    if(currentGuess == guessed[i] || currentGuess.length == 0) return;
 
                 //Clear input field
                 guessed = guessed + currentGuess;
@@ -67,7 +67,6 @@ class game{
 
     //appends guessed letter to guessed letter list
     static addToGuessed(letter) { $(".guessedletters").append(letter); }
-
     
     //checks for number of correct letters from guess and removes life if no correct letters
     static handleGuess(letter, word, lives){
